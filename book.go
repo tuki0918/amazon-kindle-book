@@ -26,7 +26,7 @@ func main() {
 		book := scrape(c.QueryParam("item"))
 		return c.JSON(http.StatusOK, book)
 	})
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
 }
 
 func scrape(uri string) Book {
